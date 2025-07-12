@@ -1,23 +1,25 @@
-function generatePDF() {
-  alert("Generating PDF Slip...");
-  const slipData = {
-    name: "John Doe",
-    nin: "12345678901",
-    date: new Date().toLocaleDateString()
-  };
+async function lookupNIN() {
+  const nin = document.getElementById('nin').value;
+  const res = await fetch('http://localhost:5000/api/user/nin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nin })
+  });
+  const data = await res.json();
+  document.getElementById('ninResult').textContent = JSON.stringify(data, null, 2);
+}
 
-  const pdfWindow = window.open("", "_blank");
-  pdfWindow.document.write(\`
-    <html>
-      <head><title>NIN Slip</title></head>
-      <body>
-        <h1>NIN Slip</h1>
-        <p>Name: \${slipData.name}</p>
-        <p>NIN: \${slipData.nin}</p>
-        <p>Date: \${slipData.date}</p>
-      </body>
-    </html>
-  \`);
-  pdfWindow.document.close();
-  pdfWindow.print();
+async function lookupBVN() {
+  const bvn = document.getElementById('bvn').value;
+  const res = await fetch('http://localhost:5000/api/user/bvn', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ bvn })
+  });
+  const data = await res.json();
+  document.getElementById('bvnResult').textContent = JSON.stringify(data, null, 2);
+}
+
+function downloadSlip() {
+  window.open('http://localhost:5000/api/user/pdf-slip', '_blank');
 }
