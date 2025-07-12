@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASO Verify - NIN VTU BVN</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>ASO Verify</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Admin</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Reliable NIN, BVN & VTU Services</h2>
+      <p>Fast. Secure. Affordable. Get all your identity and airtime services in one place.</p>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-cards">
+        <div class="card">
+          <h3>NIN Services</h3>
+          <ul>
+            <li>NIN Validation</li>
+            <li>Get NIN Slip</li>
+            <li>Tracking ID to NIN</li>
+          </ul>
+          <button onclick="generatePDF()">Download NIN Slip</button>
+        </div>
+        <div class="card">
+          <h3>BVN Services</h3>
+          <ul>
+            <li>BVN Retrieval</li>
+            <li>BVN Validation</li>
+            <li>BVN to Slip</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>VTU Services</h3>
+          <ul>
+            <li>Buy Airtime</li>
+            <li>Buy Data</li>
+            <li>Cable Subscription</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Need help or want to request a service? Reach out to us:</p>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 ASO Verify. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
