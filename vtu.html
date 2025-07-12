@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VTU Recharge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>VTU Recharge</h2>
+    <form id="vtuForm">
+      <select name="service">
+        <option value="airtime">Airtime</option>
+        <option value="data">Data</option>
+        <option value="cable">Cable TV</option>
+        <option value="electricity">Electricity</option>
+      </select>
+      <input type="text" name="phone" placeholder="Phone Number" required />
+      <input type="text" name="amount" placeholder="Amount" required />
+      <button type="submit">Recharge</button>
+    </form>
+    <pre id="vtuResult"></pre>
+  </div>
+  <script>
+    document.getElementById("vtuForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      const res = await fetch("http://localhost:5000/api/user/vtu", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service: form.get("service"),
+          phone: form.get("phone"),
+          amount: form.get("amount")
+        })
+      });
+      const data = await res.json();
+      document.getElementById("vtuResult").textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>

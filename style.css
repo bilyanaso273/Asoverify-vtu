@@ -8,15 +8,16 @@ body {
   max-width: 800px;
   margin: auto;
 }
-input, button {
+input, select, button {
   padding: 10px;
   margin: 10px 0;
+  width: 100%;
 }
 button {
-  cursor: pointer;
   background: #00bcd4;
   border: none;
-  color: #fff;
+  color: white;
+  cursor: pointer;
 }
 pre {
   background: #1c557e;

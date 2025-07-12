@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Admin Dashboard</h2>
+    <button onclick="fetchUsers()">Load Users</button>
+    <pre id="userList"></pre>
+  </div>
+  <script>
+    async function fetchUsers() {
+      const res = await fetch("http://localhost:5000/api/admin/users");
+      const data = await res.json();
+      document.getElementById("userList").textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
